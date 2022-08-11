@@ -1,0 +1,68 @@
+.signupForm {
+    text-align: center;
+}
+
+.formError {
+    color: red;
+}
+
+.formSuccess {
+    color: green;
+}
+
+.signupForm form div {
+    display: flex;
+    flex-direction: column;
+}
+
+.signupInput {
+    border-radius: 5px;
+    border: solid grey;
+    margin: 1% 40% 1% 40%;
+    padding: 10px;
+    border-width: 1px;
+    text-align: left;
+}
+
+.signupInput label {
+    font-size: 20px;
+    color: grey;
+    margin-left: 30%;
+}
+
+.signupInput:focus-within label {
+    color: blue;
+    animation-fill-mode: forwards;
+    animation-duration: 3s;
+    animation-name: signupSlideLeft;
+}
+
+.signupInput input {
+    border: none;
+}
+
+.signupInput input:focus {
+    border: none;
+    outline: none;
+}
+
+.signupButton {
+    margin: 1% 40% 1% 40%;
+    width: auto;
+}
+
+.signupButton input {
+    border-radius: 30px;
+    background-color: darkgray;
+    color: white;
+    padding: 10px 100px 10px 100px;
+}
+
+@keyframes signupSlideLeft {
+    0% {
+    }
+    
+    100% {
+        margin-left: 0%;
+    }
+}

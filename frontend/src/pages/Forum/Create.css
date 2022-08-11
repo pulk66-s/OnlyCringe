@@ -1,0 +1,67 @@
+#CreateForumDiv {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.createForumInput {
+    border-radius: 5px;
+    border: solid grey;
+    margin: 1% 35% 1% 35%;
+    padding: 10px;
+    border-width: 1px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+}
+
+.createForumInput label {
+    font-size: 20px;
+    color: grey;
+    margin-left: 30%;
+}
+
+.createForumInput:focus-within label {
+    color: blue;
+    animation-fill-mode: forwards;
+    animation-duration: 3s;
+    animation-name: createForumSlideLeft;
+}
+
+.createForumInput input {
+    border: none;
+}
+
+.createForumInput input:focus {
+    border: none;
+    outline: none;
+}
+
+.forumDescription {
+    resize: none;
+    border: none;
+    outline: none;
+    height: 50px;
+}
+
+.createForumButton {
+    margin: 1% 30% 1% 30%;
+    width: auto;
+}
+
+.createForumButton input {
+    border-radius: 30px;
+    background-color: darkgray;
+    color: white;
+    padding: 10px 100px 10px 100px;
+}
+
+
+@keyframes createForumSlideLeft {
+    0% {
+    }
+    
+    100% {
+        margin-left: 0%;
+    }
+}

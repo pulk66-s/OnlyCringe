@@ -1,0 +1,16 @@
+[package]
+name = "OC_user"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+serde = "1.0.139"
+mysql = "22.2.0"
+OC_utils = {path="../utils", version="0.1.0"}
+image = "0.24.3"
+
+[dependencies.rocket]
+version = "0.5.0-rc.2"
+features = ["json", "uuid"]

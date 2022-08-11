@@ -1,0 +1,6 @@
+docker/.back_env
+docker/.db_env
+docker/back/server/
+docker/front/client/
+docker/img/imgServer/
+__pycache__/

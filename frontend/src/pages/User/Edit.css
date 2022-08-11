@@ -1,0 +1,106 @@
+#EditBodyPage {
+    margin-bottom: 5%;
+}
+
+#UserEditForum {
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+#UserEditForumImage > div {
+    display: flex;
+    flex-direction: row;
+}
+
+#UserEditForumImage label {
+    margin-right: 10px;
+}
+
+#UserEditForumImage img {
+    margin-left: 10px;
+}
+
+#UserEditForumImage > .input {
+    text-align: center;
+}
+
+#UserFormImage {
+    display: flex;
+    flex-direction: row;
+    color: lightgray;
+}
+
+#UserFormImage > img {
+    width: 50px;
+    height: 50px;
+}
+
+.userEditForumSection {
+    border: 1px solid grey;
+    margin-bottom: 5%;
+    padding: 5%;
+    border-radius: 5px;
+}
+
+.userEditForumSection > div {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 5%;
+}
+
+.userEditForumSection:focus-within > label, .userEditForumSection:focus-within > div > label {
+    color: blue;
+}
+
+.userEditForumSection > div > p {
+    margin: 0px 0px 0px 10px;
+    color: lightgray
+}
+
+.userEditForumSection > input,
+.userEditForumSection > textarea {
+    width: 100%;
+    border: none;
+}
+
+.loginInput input {
+    border: none;
+}
+
+.userEditForumSection > input:focus,
+.userEditForumSection > textarea:focus {
+    border: none;
+    outline: none;
+}
+
+.userEditForumSection > textarea {
+    resize: vertical;
+}
+
+.userEditForumPassword {
+    display: flex;
+    flex-direction: column;
+}
+
+.userEditForumPassword > label {
+    margin-bottom: 5%;
+}
+
+#UserEditForumSubmit {
+    background-color: darkgray;
+    color: white;
+    padding: 10px 100px 10px 100px;
+    border-radius: 30px;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    margin-left: auto;
+    margin-right: auto;
+    width: auto;
+}
+
+#UserSuccess h3 {
+    color: green;
+}

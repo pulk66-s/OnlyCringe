@@ -1,0 +1,37 @@
+#SearchBar {
+    border: solid grey;
+    width: 100%;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border-radius: 10px;
+}
+
+#SearchBar input {
+    border-style: none;
+    font-size: 18px;
+    text-align: center;
+}
+
+#SearchBar input:focus {
+    border: none;
+    outline: none;
+}
+
+#SearchBar form div {
+    display: flex;
+    flex-direction: column;
+}
+
+#SearchBar form div label {
+    text-align: center;
+}
+
+.forumSearch {
+    border: solid lightgray;
+    width: 100%;
+}
+
+.forumSearchClickable {
+    text-decoration: none;
+    color: inherit;
+}

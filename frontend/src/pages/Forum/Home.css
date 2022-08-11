@@ -1,0 +1,53 @@
+#CreateNewForumBtn {
+    text-align: center;
+    border: solid grey;
+    margin-left: 43%;
+    margin-right: 43%;
+    display: flex;
+    flex-direction: row;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    border-radius: 5px;
+}
+
+#CreateNewForumBtn a {
+    border-radius: 5px;
+}
+
+#CreateNewForumBtn img {
+    width: 50px;
+}
+
+#ForumList {
+    margin-top: 5%;
+}
+
+#GlobalSearch {
+    margin: 1% 35% 0% 35%;
+}
+
+.forum {
+    margin-left: 35%;
+    margin-right: 35%;
+    border: solid grey;
+}
+
+.forumInfoHeader {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    padding: 5px 10px 5px 10px;
+}
+
+.forumInfoHeader h2 {
+    margin: 0px;
+}
+
+.forumInfoHeader p {
+    margin: 3px 0px 0px 0px;
+}
+
+.forumLink {
+    text-decoration: none;
+    color: inherit;
+}

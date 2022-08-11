@@ -1,0 +1,17 @@
+#HomeFooter {
+    bottom: 0%;
+    background-color: #DDDDDD;
+    padding: 20px;
+    width: auto;
+    left: 0%;
+    right: 0%;
+
+    position: absolute;
+    height: auto;
+
+}
+
+#HomeFooter a {
+    color: black;
+    text-decoration: underline;
+}

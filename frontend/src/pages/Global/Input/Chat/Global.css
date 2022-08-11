@@ -1,0 +1,22 @@
+#CreateChat {
+    margin: 0% 10% 1% 10%;
+    border: solid 2px lightgrey;
+    border-radius: 8px;
+    padding: 8px 5px 8px 5px;
+
+}
+
+#createChatContentField {
+    display: flex;
+    flex-direction: column;
+}
+
+#CreateChatContent {
+    resize: none;
+    height: 80px;
+}
+
+#createChatSubmitField {
+    text-align: right;
+    margin: 7px 5px 0px 0px;
+}

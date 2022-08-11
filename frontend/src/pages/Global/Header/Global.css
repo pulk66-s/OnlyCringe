@@ -1,0 +1,71 @@
+#LogoMenu {
+    cursor: pointer;
+}
+
+#LogoMenu a {
+    text-decoration: none;
+    color: inherit;
+}
+
+#HeaderMenuProfile {
+    display: flex;
+    flex-direction: row;
+}
+
+#HeaderMenuProfile > img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.menuTile {
+    border: solid 1px grey;
+}
+
+.menuTile > p {
+    margin: 10px;
+}
+
+.profileMenuTile {
+    padding: 0px;
+}
+
+.logoMenuUnVisible > div {
+    display: none;
+}
+
+.logoMenuVisible > div {
+    position: absolute;
+    right: 0%;
+    margin: 10px;
+    border: solid 1px grey;
+    z-index: 1;
+    background-color: white;
+}
+
+#GlobalHeader {
+    background-color: grey;
+    padding: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#HeaderTitle > a > h1 {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: white;
+    padding: 0px
+}
+
+#HeaderTitle > a {
+    text-decoration: none;
+}
+
+#HeaderUserLogo {
+    width: 50px;
+    height: 100%;
+    margin: auto;
+    border-radius: 50%;
+}

@@ -1,0 +1,88 @@
+h1,
+h2 {
+    text-align: center;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+.formDiv {
+    margin-top: 30%;
+    text-align: center;
+}
+
+.loginInput {
+    border-radius: 5px;
+    border: solid grey;
+    margin: 1% 35% 1% 35%;
+    padding: 10px;
+    border-width: 1px;
+    text-align: left;
+}
+
+.loginInput label {
+    font-size: 20px;
+    color: grey;
+    margin-left: 30%;
+}
+
+.loginInput:focus-within label {
+    color: blue;
+    animation-fill-mode: forwards;
+    animation-duration: 3s;
+    animation-name: logInSlideLeft;
+}
+
+.loginInput input {
+    border: none;
+}
+
+.loginInput input:focus {
+    border: none;
+    outline: none;
+}
+
+.loginButton {
+    margin: 1% 30% 1% 30%;
+    width: auto;
+}
+
+.loginButton input {
+    border-radius: 30px;
+    background-color: darkgray;
+    color: white;
+    padding: 10px 100px 10px 100px;
+}
+
+.split {
+    height: 100%;
+    width: 50%;
+    position: fixed;
+    z-index: 0;
+    top: 0;
+    padding-top: 20px;
+}
+
+.splitLeft {
+    left: 0;
+}
+
+.splitRight {
+    right: 0;
+}
+
+#HomeBackgroundImage {
+    height: 100%;
+    width: 100%;
+}
+
+@keyframes logInSlideLeft {
+    0% {
+    }
+    
+    100% {
+        margin-left: 0%;
+    }
+}

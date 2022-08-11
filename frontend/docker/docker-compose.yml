@@ -1,0 +1,20 @@
+version: "3"
+
+services:
+
+  front:
+    restart: always
+    image: node:latest
+    ports:
+      - "3000:3000"
+    build: ./front
+    networks:
+      OnlyCringe_front_network:
+        ipv4_address: 172.33.0.5
+
+networks:
+  OnlyCringe_front_network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.33.0.1/16

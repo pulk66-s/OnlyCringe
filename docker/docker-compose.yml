@@ -1,0 +1,64 @@
+version: "3"
+
+services:
+
+  back:
+    restart: always
+    image: rust:latest
+    build: ./back
+    container_name: OC_back
+    ports:
+      - "8901:8901"
+    depends_on:
+      - db
+    networks:
+      OnlyCringe_network:
+        ipv4_address: 172.32.0.3
+    env_file:
+      - .back_env
+
+  img:
+    restart: always
+    image: python:latest
+    build: ./img
+    container_name: OC_img
+    ports:
+      - "5000:5000"
+    depends_on:
+      - db
+    networks:
+      OnlyCringe_network:
+        ipv4_address: 172.32.0.4
+
+  db:
+    env_file:
+      - .db_env
+    restart: always
+    container_name: OC_db
+    build: ./db
+    image: mariadb:latest
+    ports:
+      - "3306:3306"
+    networks:
+      OnlyCringe_network:
+        ipv4_address: 172.32.0.2
+
+  front:
+    restart: always
+    image: node:latest
+    build: ./front
+    container_name: OC_front
+    ports:
+      - "3000:3000"
+    depends_on:
+      - back
+    networks:
+      OnlyCringe_network:
+        ipv4_address: 172.32.0.5
+
+networks:
+  OnlyCringe_network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.32.0.1/16

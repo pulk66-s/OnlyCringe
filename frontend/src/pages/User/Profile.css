@@ -1,0 +1,90 @@
+#GLobalHeader {
+    margin-bottom: 5%;
+}
+
+.userForumSubbed {
+    border: solid lightgrey;
+    padding: 8px;
+    margin-bottom: 2%;
+}
+
+.userForumSubbed * {
+    margin: 0px;
+}
+
+.userForumSubbed h2 {
+    margin-bottom: 5px;
+}
+
+.userFriend {
+    border: solid lightgrey;
+    padding: 8px;
+    margin-bottom: 2%;
+}
+
+.userFriend * {
+    margin: 0px;
+}
+
+.userFriend h2 {
+    margin-bottom: 5px;
+}
+
+#UserInfoPage {
+    position: fixed;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 95%;
+}
+
+#UserInfo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 3%;
+    margin-bottom: 5%;
+    height: 75%;
+}
+
+#UserInfoHeader {
+    align-items: center;
+    padding: 5px 10px 5px 10px;
+    border-radius: 5px;
+    margin-top: 2%;
+}
+
+#UserInfoHeader h1 {
+    margin: 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#UserInfoHeader * {
+    width: 100%;
+    margin: 0px;
+}
+
+#UserSubbedForum, #UserFriends {
+    width: 20%;
+    border: solid lightgrey;
+    height: 100%;
+}
+
+#UserEditBtn, #UserFriendBtn {
+    margin-right: 40%;
+    width: 10%;
+}
+
+#UserInfo > #UserDescription {
+    width: 50%;
+    border: solid lightgrey;
+    height: 100%;
+}
+
+.userClickableLink {
+    text-decoration: none;
+    color: inherit;
+}
