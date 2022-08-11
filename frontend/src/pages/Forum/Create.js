@@ -11,6 +11,7 @@ class CreateForum extends React.Component {
         super(props);
         this.forumApi = new ForumAPI();
         this.userApi = new UserAPI();
+        this.success = <div></div>
         this.userApi.is_logged().then(res => {
             this.logged = res;
             this.forceUpdate();
@@ -29,7 +30,16 @@ class CreateForum extends React.Component {
         this.createForumForm.author = {
             uuid: localStorage.uuid
         };
-        await this.forumApi.create(this.createForumForm);
+        console.log(this.createForumForm);
+        let res = await this.forumApi.create(this.createForumForm);
+        console.log("res", res);
+        this.success = <div id="CreateSuccessMessage">
+            <p>Forum Created !</p>
+            <a href={"/forum/" + this.createForumForm.name}>
+                <button>See the forum</button>
+            </a>
+        </div>
+        this.forceUpdate();
     }
 
     changeCreateForumForm(event) {
@@ -50,6 +60,7 @@ class CreateForum extends React.Component {
             return (
                 <div>
                     <GlobalHeader></GlobalHeader>
+                    {this.success}
                     <div>
                         <h1>Create your own Forum</h1>
                     </div>

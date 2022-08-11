@@ -4,6 +4,16 @@
     flex-direction: column;
 }
 
+#CreateSuccessMessage {
+    text-align: center;
+    margin-top: 10px;
+}
+
+#CreateSuccessMessage > p {
+    font-size: 22px;
+    color: green;
+}
+
 .createForumInput {
     border-radius: 5px;
     border: solid grey;

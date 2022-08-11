@@ -5,14 +5,35 @@
     height: 100%;
 }
 
-#ForumHeader {
+#ForumTitle {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    margin-top: 10px;
 }
 
-#ForumHeader > div {
+#ForumTitle > div {
     margin-top: 4%;
+}
+
+#ForumTitle > img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+#ForumTitle > h1 {
+    margin: 0px;
+}
+
+#ForumDescription {
+    border: solid grey;
+    margin: 0px 10% 2% 10%;
+    padding: 2% 1% 2% 1%;
+}
+
+#ForumDescription > p {
+    margin: 0px;
 }
 
 .chatBoxLink {

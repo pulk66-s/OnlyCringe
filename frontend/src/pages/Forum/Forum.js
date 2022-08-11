@@ -5,6 +5,7 @@ import UserAPI from "api/user.js"
 import GlobalFooter from "pages/Global/Footer/Global"
 import GlobalHeader from "pages/Global/Header/Global"
 import GlobalChatInput from "pages/Global/Input/Chat/Global.js"
+import UnknownUser from "assets/img/UnknownUser.png"
 
 class Forum extends React.Component {
 
@@ -21,6 +22,7 @@ class Forum extends React.Component {
         let forumName = words[words.length - 1].replace(/%20/g, " ");
         this.forum = undefined;
         this.isSubbed = false;
+        this.profilePicture = UnknownUser;
         this.forumApi.get_by_name(forumName).then((res) => {
             if (res.status === 204) {
                 this.forum = undefined;
@@ -36,6 +38,10 @@ class Forum extends React.Component {
                     this.isSubbed = false;
                     this.forceUpdate();
                 })
+                this.userApi.get_profile_picture(forum.author.uuid).then((res) => {
+                    this.profilePicture = "data:image/png;base64," + res.data;
+                    this.forceUpdate();
+                });
             }
             this.forceUpdate();
         });
@@ -114,9 +120,16 @@ class Forum extends React.Component {
                         <GlobalHeader></GlobalHeader>
                         <div id="ForumMainColumn">
                             <div id="ForumHeader">
-                                <p></p>
-                                <h1>{this.forum ? this.forum.name : ""}</h1>
-                                {this.subButton()}
+                                <div id="ForumTitle">
+                                    <img src={this.profilePicture} />
+                                    <h1>{this.forum ? this.forum.name : ""}</h1>
+                                    <div>
+                                        <button onClick={this.changeSub}>{this.isSubbed ? "UnSub" : "Sub"}</button>
+                                    </div>
+                                </div>
+                                <div id="ForumDescription">
+                                    <p>{this.forum.description}</p>
+                                </div>
                             </div>
                             <div>
                                 {this.getAllChats()}

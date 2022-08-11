@@ -50,10 +50,14 @@ class UserProfileEdit extends React.Component {
 
     async submitForm(event) {
         event.preventDefault();
+        console.log("submit");
         let cleaned = Object.fromEntries(Object.entries(this.editUserForm).filter(([_, v]) => v != ""));
         if (cleaned.password === cleaned.confirmPassword && cleaned.email === cleaned.confirmEmail && cleaned.password !== "") {
-            await this.userApi.edit_user(cleaned, this.user.uuid);
+            try {
+                await this.userApi.edit_user(cleaned, this.user.uuid);
+            } catch (_) {}
         }
+        console.log(this.editFormProfile);
         if (this.editFormProfile !== "") {
             await this.userApi.upload_profile_picture(this.user.uuid, this.editFormProfile);
         }

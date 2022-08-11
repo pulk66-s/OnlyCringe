@@ -1,0 +1,2 @@
+cd imgServer
+flask run
