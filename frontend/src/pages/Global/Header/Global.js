@@ -11,12 +11,6 @@ class GlobalHeader extends React.Component {
         this.userUuid = localStorage.uuid;
         this.profileSrc = UnknownUser;
         this.test = "test";
-        this.userApi.get_profile_picture(this.userUuid).then(res => {
-            if (res.status === 202) {
-                this.profileSrc = "data:image/png;base64," + res.data;
-                this.forceUpdate();
-            }
-        });
         this.clicked = false;
         this.switchClick = this.switchClick.bind(this);
     }
@@ -32,6 +26,11 @@ class GlobalHeader extends React.Component {
     }
 
     render() {
+        if (localStorage.profilePicture !== undefined) {
+            this.profileSrc = localStorage.profilePicture;
+        } else {
+            this.profileSrc = UnknownUser;
+        }
         return (
             <div id="GlobalHeader">
                 <div></div>

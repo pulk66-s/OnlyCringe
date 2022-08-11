@@ -1,7 +1,7 @@
 import "./Edit.css"
 import React from "react"
 import UserAPI from "api/user.js"
-import UnkwownUser from "assets/img/UnknownUser.png"
+import UnknownUser from "assets/img/UnknownUser.png"
 import GlobalFooter from "pages/Global/Footer/Global"
 import GlobalHeader from "pages/Global/Header/Global"
 
@@ -26,7 +26,10 @@ class UserProfileEdit extends React.Component {
             description: "",
         };
         this.editFormProfile = "";
-        this.userProfile = UnkwownUser;
+        this.userProfile = UnknownUser;
+        if (localStorage.profilePicture !== undefined) {
+            this.userProfile = localStorage.profilePicture;
+        }
         let words = window.location.href.split("/");
         this.userName = words[words.length - 2].replace(/%20/g, " ");
         this.userApi.get_by_name(this.userName).then((res) => {
@@ -37,29 +40,30 @@ class UserProfileEdit extends React.Component {
                 if (this.user.uuid === localStorage.uuid) {
                     this.owner = true;
                 }
-                this.userApi.get_profile_picture(this.user.uuid).then(res => {
-                    this.userProfile = "data:image/png;base64," + res.data;
-                    this.forceUpdate();
-                });
             }
             this.forceUpdate();
         });
+        if (localStorage.profilePicture !== undefined) {
+            this.profilePicture = localStorage.profilePicture;
+        } else {
+            this.profilePicture = UnknownUser;
+        }
         this.submitForm = this.submitForm.bind(this);
         this.changeForm = this.changeForm.bind(this);
     }
 
     async submitForm(event) {
         event.preventDefault();
-        console.log("submit");
         let cleaned = Object.fromEntries(Object.entries(this.editUserForm).filter(([_, v]) => v != ""));
         if (cleaned.password === cleaned.confirmPassword && cleaned.email === cleaned.confirmEmail && cleaned.password !== "") {
             try {
                 await this.userApi.edit_user(cleaned, this.user.uuid);
             } catch (_) {}
         }
-        console.log(this.editFormProfile);
         if (this.editFormProfile !== "") {
             await this.userApi.upload_profile_picture(this.user.uuid, this.editFormProfile);
+            let pp = await this.userApi.get_profile_picture(this.user.uuid);
+            localStorage.profilePicture = "data:image/png;base64," + pp.data;    
         }
         window.location.reload(false);
     }

@@ -30,9 +30,7 @@ class CreateForum extends React.Component {
         this.createForumForm.author = {
             uuid: localStorage.uuid
         };
-        console.log(this.createForumForm);
         let res = await this.forumApi.create(this.createForumForm);
-        console.log("res", res);
         this.success = <div id="CreateSuccessMessage">
             <p>Forum Created !</p>
             <a href={"/forum/" + this.createForumForm.name}>

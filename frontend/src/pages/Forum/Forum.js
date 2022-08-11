@@ -38,13 +38,14 @@ class Forum extends React.Component {
                     this.isSubbed = false;
                     this.forceUpdate();
                 })
-                this.userApi.get_profile_picture(forum.author.uuid).then((res) => {
-                    this.profilePicture = "data:image/png;base64," + res.data;
-                    this.forceUpdate();
-                });
             }
             this.forceUpdate();
         });
+        if (localStorage.profilePicture !== undefined) {
+            this.profilePicture = localStorage.profilePicture;
+        } else {
+            this.profilePicture = UnknownUser;
+        }
         this.getAllChats = this.getAllChats.bind(this);
         this.subButton = this.subButton.bind(this);
         this.changeSub = this.changeSub.bind(this);

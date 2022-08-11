@@ -3,6 +3,7 @@ import React from "react"
 import UserAPI from "api/user.js"
 import homeBackground from "assets/img/HomeBackground.png";
 import GlobalFooter from "pages/Global/Footer/Global.js";
+import UnknownUser from "assets/img/UnknownUser.png"
 
 class Home extends React.Component {
 
@@ -41,6 +42,8 @@ class Home extends React.Component {
         localStorage.jwt = res.data;
         localStorage.userName = this.loginForm.name;
         localStorage.uuid = user.uuid;
+        let pp = await this.userApi.get_profile_picture(user.uuid);
+        localStorage.profilePicture = "data:image/png;base64," + pp.data;
         window.location = "/forum/home";
     }
 
