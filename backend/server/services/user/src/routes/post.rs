@@ -1,10 +1,10 @@
-use crate::service::{get, create, login, friend};
 use crate::data::User;
+use crate::service::{create, friend, get, login};
+use rocket::data::{Data, ToByteUnit};
+use rocket::post;
 use rocket::response::status::{Accepted, BadRequest};
 use rocket::serde::json::Json;
 use rocket::serde::uuid::Uuid;
-use rocket::data::{Data, ToByteUnit};
-use rocket::post;
 use OC_utils::jwt;
 
 #[post("/", data = "<user>")]
@@ -16,9 +16,11 @@ pub fn create_route(user: Json<User>) -> Result<Accepted<String>, BadRequest<Str
     };
 }
 
-
 #[post("/profile/<uuid>", data = "<data>")]
-pub async fn upload_profile(uuid: Uuid, data: Data<'_>) -> Result<Accepted<String>, BadRequest<String>> {
+pub async fn upload_profile(
+    uuid: Uuid,
+    data: Data<'_>,
+) -> Result<Accepted<String>, BadRequest<String>> {
     let user = match get::get_user_by_uuid(&uuid) {
         Some(x) => x,
         None => return Err(BadRequest(Some("User not found".to_string()))),

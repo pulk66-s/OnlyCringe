@@ -1,9 +1,9 @@
-use crate::service::{get, modify};
 use crate::data::User;
+use crate::service::{get, modify};
+use rocket::put;
 use rocket::response::status::{Accepted, BadRequest};
 use rocket::serde::json::Json;
 use rocket::serde::uuid::Uuid;
-use rocket::put;
 
 #[put("/<name>", data = "<data>", rank = 2)]
 pub fn modify_by_name(

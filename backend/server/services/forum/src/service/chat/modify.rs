@@ -1,7 +1,7 @@
 use crate::data::Chat;
 use crate::service::chat;
-use OC_utils::database;
 use rocket::serde::uuid::Uuid;
+use OC_utils::database;
 
 pub fn modify_by_uuid(uuid: Uuid, chat: &Chat) -> bool {
     let key_map = chat::get::get_keys(&chat);

@@ -1,8 +1,8 @@
-use crate::service::{get, friend};
+use crate::service::{friend, get};
+use mysql::serde_json;
+use rocket::get;
 use rocket::response::status::{Accepted, BadRequest, Conflict, NoContent};
 use rocket::serde::uuid::Uuid;
-use rocket::get;
-use mysql::serde_json;
 
 #[get("/")]
 pub fn get_all() -> Result<Accepted<String>, Conflict<String>> {
@@ -52,7 +52,7 @@ pub async fn download_profile(uuid: Uuid) -> Result<Accepted<String>, BadRequest
                 },
                 Err(_) => return Err(BadRequest(Some("Profile picture not found2".to_string()))),
             };
-        },
+        }
         None => Err(BadRequest(Some("User not found".to_string()))),
     };
 }

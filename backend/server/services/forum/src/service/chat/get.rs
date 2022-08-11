@@ -10,7 +10,8 @@ use OC_utils::database;
 fn parse_from_db(rows: Vec<Result<Row>>) -> Vec<Chat> {
     let mut res = vec![];
     for row in rows {
-        let r: (String, String, String, String, String, bool, Option<String>) = from_row(row.unwrap());
+        let r: (String, String, String, String, String, bool, Option<String>) =
+            from_row(row.unwrap());
         res.push(Chat {
             uuid: Some(r.0.clone()),
             author: match Uuid::parse_str(&r.1) {
@@ -81,7 +82,10 @@ pub fn by_uuid(uuid: &Uuid) -> Option<Chat> {
 
 pub fn by_forum(forum: Forum) -> Option<Vec<Chat>> {
     if let Some(uuid) = forum.uuid {
-        let query = format!("select * from Chat where forum_id='{}' and answer_to is NULL", uuid);
+        let query = format!(
+            "select * from Chat where forum_id='{}' and answer_to is NULL",
+            uuid
+        );
         return match database::get(&query) {
             Some(x) => Some(parse_from_db(x)),
             None => None,

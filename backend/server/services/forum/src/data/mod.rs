@@ -52,7 +52,7 @@ impl Chat {
             archived: None,
             answers: None,
             answer_to: None,
-        }
+        };
     }
 }
 

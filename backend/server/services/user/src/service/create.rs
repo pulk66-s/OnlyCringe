@@ -1,7 +1,7 @@
 use crate::data::User;
 use crate::service::convert;
 use rocket::serde::uuid::Uuid;
-use OC_utils::{database, encrypt, api};
+use OC_utils::{api, database, encrypt};
 
 fn post_user_in_db(user: &User) -> bool {
     let user_map = convert::to_map(user);

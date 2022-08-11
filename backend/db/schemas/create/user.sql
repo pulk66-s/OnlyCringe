@@ -8,5 +8,6 @@ create table User (
     email text not null unique,
     archived bool not null default false,
     creation_date datetime not null default now(),
+    verified bool not null default false,
     role enum("ADMIN", "USER") not null default "USER"
 );

@@ -36,8 +36,17 @@ pub fn to_map(user: &User) -> HashMap<String, String> {
 pub fn from_db(rows: Vec<Result<Row>>) -> Vec<User> {
     let mut result: Vec<User> = vec![];
     for row in rows {
-        let r: (String, String, String, String, String, bool, String, String) =
-            from_row(row.unwrap());
+        let r: (
+            String,
+            String,
+            String,
+            String,
+            String,
+            bool,
+            String,
+            bool,
+            String,
+        ) = from_row(row.unwrap());
         result.push(User {
             uuid: Some(r.0.clone()),
             name: Some(r.1),
@@ -46,7 +55,8 @@ pub fn from_db(rows: Vec<Result<Row>>) -> Vec<User> {
             email: Some(r.4),
             archived: Some(r.5),
             creation_date: Some(r.6),
-            role: Some(Role::new(&r.7)),
+            verified: Some(r.7),
+            role: Some(Role::new(&r.8)),
             friends: match Uuid::parse_str(&r.0) {
                 Ok(x) => Some(friend::get_friends_by_uuid(&x)),
                 Err(_) => None,

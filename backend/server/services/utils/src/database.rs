@@ -63,6 +63,6 @@ pub fn get(query: &str) -> Option<Vec<Result<Row>>> {
             });
             Some(res)
         }
-        Err(_) => None
+        Err(_) => None,
     };
 }

@@ -29,10 +29,7 @@ pub fn delete(user: &User, friend: &User) -> bool {
         Some(x) => x,
         None => return false,
     };
-    let query = format!(
-        "delete from Friend where uid='{}' and fid='{}'",
-        uid, fid
-    );
+    let query = format!("delete from Friend where uid='{}' and fid='{}'", uid, fid);
     return database::send(&query);
 }
 
@@ -62,7 +59,10 @@ pub fn get_friends(user: &User, status: Option<String>) -> Option<Vec<User>> {
 }
 
 pub fn get_friends_by_uuid(uuid: &Uuid) -> Vec<User> {
-    let query = format!("select fid from Friend where uid='{}' and status='ACCEPTED'", uuid);
+    let query = format!(
+        "select fid from Friend where uid='{}' and status='ACCEPTED'",
+        uuid
+    );
     let mut result: Vec<User> = vec![];
     let rows = database::get(&query);
     if let Some(rows) = rows {
@@ -78,6 +78,7 @@ pub fn get_friends_by_uuid(uuid: &Uuid) -> Vec<User> {
                 creation_date: None,
                 role: None,
                 friends: None,
+                verified: None,
             });
         }
     }

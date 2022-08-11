@@ -11,7 +11,7 @@ pub enum Role {
 pub enum FriendStatus {
     ASKING,
     ACCEPTED,
-    DECLINED
+    DECLINED,
 }
 
 #[derive(Serialize, Deserialize, Clone, Debug)]
@@ -23,6 +23,7 @@ pub struct User {
     pub email: Option<String>,
     pub archived: Option<bool>,
     pub role: Option<Role>,
+    pub verified: Option<bool>,
     pub creation_date: Option<String>,
     pub friends: Option<Vec<User>>,
 }
@@ -57,13 +58,14 @@ impl FriendStatus {
 
 impl fmt::Display for User {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        write!(f, "uuid={uuid:?}, name={name:?}, password={password:?}, email={email:?}, archived={archived:?}, role={role:?}",
+        write!(f, "uuid={uuid:?}, name={name:?}, password={password:?}, email={email:?}, archived={archived:?}, role={role:?}, verified={verified:?}",
             uuid=self.uuid,
             name=self.name,
             password=self.password,
             email=self.email,
             archived=self.archived,
-            role=self.role
+            role=self.role,
+            verified=self.verified,
         )
     }
 }

@@ -25,7 +25,10 @@ pub fn create_chat(data: Json<Chat>) -> Result<Accepted<String>, BadRequest<Stri
 }
 
 #[post("/sub/<uuid>", data = "<data>")]
-pub fn create_forum_sub(uuid: Uuid, data: Json<User>) -> Result<Accepted<String>, BadRequest<String>> {
+pub fn create_forum_sub(
+    uuid: Uuid,
+    data: Json<User>,
+) -> Result<Accepted<String>, BadRequest<String>> {
     let user = data.into_inner();
     return match forum::create::sub(uuid, &user) {
         true => Ok(Accepted(Some("User sub into forum".to_string()))),

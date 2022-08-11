@@ -3,7 +3,7 @@ use crate::service::convert;
 use mysql::from_row;
 use rocket::serde::uuid::Uuid;
 use std::collections::HashMap;
-use OC_utils::{database, api};
+use OC_utils::{api, database};
 
 fn get_all_users() -> Option<Vec<User>> {
     let query = "select * from User";

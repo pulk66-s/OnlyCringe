@@ -1,6 +1,6 @@
 use crate::data::User;
 use rocket::serde::uuid::Uuid;
-use OC_utils::{database, api};
+use OC_utils::{api, database};
 
 pub async fn profile_picture(uuid: &Uuid) -> bool {
     let url = format!("http://localhost:5000/api/image/profile/{}", uuid);
@@ -18,4 +18,3 @@ pub fn from_obj(user: &User) -> bool {
         return false;
     }
 }
-

@@ -1,9 +1,9 @@
-use crate::service::{get, delete, friend};
 use crate::data::User;
+use crate::service::{delete, friend, get};
+use rocket::delete;
 use rocket::response::status::{Accepted, BadRequest};
 use rocket::serde::json::Json;
 use rocket::serde::uuid::Uuid;
-use rocket::delete;
 
 #[delete("/profile/<uuid>")]
 pub async fn delete_profile(uuid: Uuid) -> Result<Accepted<String>, BadRequest<String>> {
@@ -20,7 +20,7 @@ pub async fn delete_profile(uuid: Uuid) -> Result<Accepted<String>, BadRequest<S
                 },
                 Err(_) => return Err(BadRequest(Some("Error while parsing uuid".to_string()))),
             };
-        },
+        }
         None => Err(BadRequest(Some("User not found".to_string()))),
     };
 }

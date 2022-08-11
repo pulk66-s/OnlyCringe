@@ -1,4 +1,4 @@
-use crate::service::{forum, chat};
+use crate::service::{chat, forum};
 use mysql::serde_json;
 use rocket::get;
 use rocket::response::status::{Accepted, BadRequest, NoContent};

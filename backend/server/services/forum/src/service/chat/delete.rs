@@ -1,5 +1,5 @@
-use OC_utils::database;
 use rocket::serde::uuid::Uuid;
+use OC_utils::database;
 
 pub fn by_name(name: String) -> bool {
     let query = format!("update Chat set archived=true where name='{}'", name);
