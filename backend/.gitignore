@@ -5,3 +5,4 @@ docker/back/server/
 docker/img/imgServer/
 imgServer/res/profile/*.png
 tests/
+server/.env
