@@ -16,14 +16,14 @@ class LoginPage(BasePage):
     def click_login_button(self):
         button = self.find_element_by_xpath("//div[@class='loginButton']//input")
         button.click()
-        self.wait(1)
+        self.wait_for_page_to_load()
 
     def click_user_condition(self):
         button = self.find_element_by_xpath("//div[@id='HomeFooter']//div//a")
         button.click()
-        self.wait(1)
+        self.wait_for_page_to_load()
 
     def click_create_an_account(self):
         button = self.find_element_by_xpath("//div[@class='formDiv']//div//p//a")
         button.click()
-        self.wait(1)
+        self.wait_for_page_to_load()

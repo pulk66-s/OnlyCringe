@@ -29,3 +29,8 @@ def I_click_on_the_User_Condition_link(context):
 @when("I click on the Create an account link")
 def I_click_on_the_Create_an_account_link(context):
     context.loginPage.click_create_an_account()
+
+@then("I should be on the Login page")
+def I_should_be_on_the_login_page(context):
+    loginPage = LoginPage(None)
+    assert context.curr_page.is_current_page(loginPage)

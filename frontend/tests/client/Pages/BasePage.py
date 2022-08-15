@@ -42,3 +42,6 @@ class BasePage:
             return self.browser.find_element_by_xpath(xpath)
         except:
             raise ValueError(f"Element with xpath {xpath} not found")
+
+    def wait_for_page_to_load(self):
+        self.wait(1)
