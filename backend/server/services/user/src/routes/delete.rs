@@ -44,6 +44,9 @@ pub fn delete_by_name(name: String) -> Result<Accepted<String>, BadRequest<Strin
         Some(x) => x,
         None => return Err(BadRequest(Some("User not deleted".to_string()))),
     };
+    if user.archived == Some(true) {
+        return Err(BadRequest(Some("User not deleted".to_string())));
+    }
     return match delete::from_obj(&user) {
         true => Ok(Accepted(Some("User deleted".to_string()))),
         false => Err(BadRequest(Some("User not deleted".to_string()))),
@@ -56,6 +59,9 @@ pub fn delete_by_uuid(uuid: Uuid) -> Result<Accepted<String>, BadRequest<String>
         Some(x) => x,
         None => return Err(BadRequest(Some("User not deleted".to_string()))),
     };
+    if user.archived == Some(true) {
+        return Err(BadRequest(Some("User not deleted".to_string())));
+    }
     return match delete::from_obj(&user) {
         true => Ok(Accepted(Some("User deleted".to_string()))),
         false => Err(BadRequest(Some("User not deleted".to_string()))),
