@@ -42,6 +42,7 @@ class SignUp extends React.Component {
     async submitSignupForm(event) {
         event.preventDefault();
         this.formErrors = [];
+        this.formErrorHTML = <div></div>;
         this.formSuccessHTML = <div></div>;
         if (this.signUpForm.password !== this.signUpForm.confirmPassword) {
             this.formErrors.push("Different password");
