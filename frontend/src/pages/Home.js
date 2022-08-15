@@ -42,8 +42,12 @@ class Home extends React.Component {
         localStorage.jwt = res.data;
         localStorage.userName = this.loginForm.name;
         localStorage.uuid = user.uuid;
-        let pp = await this.userApi.get_profile_picture(user.uuid);
-        localStorage.profilePicture = "data:image/png;base64," + pp.data;
+        try {
+            let pp = await this.userApi.get_profile_picture(user.uuid);
+            localStorage.profilePicture = "data:image/png;base64," + pp.data;
+        } catch (_) {
+            localStorage.profilePicture = UnknownUser;
+        }
         window.location = "/forum/home";
     }
 
