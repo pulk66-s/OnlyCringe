@@ -1,9 +1,11 @@
+from Utils.Encrypt import Encrypt
+
 class User:
 
     def __init__(self, uuid="", name="", password=""):
         self.uuid = uuid
         self.name = name
-        self.password = password
+        self.password = Encrypt.encrypt_password(password, name)
 
     def __str__(self):
         txt = f"Name: {self.name}, Password: {self.password}"

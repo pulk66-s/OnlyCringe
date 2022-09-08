@@ -3,6 +3,7 @@ from flask_cors import CORS
 
 from Services.User import User as UserService
 from Utils.JSON import JSON
+from Utils.Decorator.Json import json_response
 
 app = Flask(__name__)
 CORS(app)
@@ -14,9 +15,15 @@ def index_route():
     return "Hello World"
 
 @app.route("/api/user", methods = ["GET", "POST"])
+@json_response
 def get_user_route():
     if request.method == "GET":
-        return JSON.parse(userService.get())
+        return userService.get()
     elif request.method == "POST":
-        res, code = userService.create(request.json)
-        return JSON.parse(res), code
+        return userService.create(request.json)
+
+@app.route("/api/user/login", methods = ["POST"])
+@json_response
+def login_user_route():
+    if request.method == "POST":
+        return userService.login(request.json)
