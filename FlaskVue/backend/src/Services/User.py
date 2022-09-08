@@ -1,5 +1,6 @@
 import json
 from Utils.DB import DB
+from Utils.JSON import JSON
 from Data.User import User as UserModel
 
 class User:
@@ -51,3 +52,14 @@ class User:
             return self.get(name=user.name), 201
         else:
             return "Error", 500
+
+    def login(self, data):
+        user = self.parse(data)
+        if not self.__check_user(user):
+            return "Invalid user", 40
+        req = f"select * from User where name = '{user.name}' and password = '{user.password}'"
+        res = self.db.get(req)
+        if len(res) == 0:
+            return "Invalid user", 400
+        else:
+            return self.parse(res[0]), 200

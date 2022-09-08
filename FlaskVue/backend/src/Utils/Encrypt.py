@@ -11,3 +11,8 @@ class Encrypt:
         combined = password + salt
         return hashlib.sha512(bytes(combined, encoding="utf-8")).hexdigest()
 
+    def encrypt_user(user):
+        load_dotenv()
+        salt = os.getenv("ENCRYPT_SALT")
+        data = user.uuid + user.name + user.password + salt;
+        return hashlib.sha512(bytes(data, encoding="utf-8")).hexdigest()

@@ -8,7 +8,7 @@ class User:
         self.password = Encrypt.encrypt_password(password, name)
 
     def __str__(self):
-        txt = f"Name: {self.name}, Password: {self.password}"
+        txt = f"Uuid: {self.uuid}, Name: {self.name}, Password: {self.password}"
         return txt
 
     def __dict__(self):

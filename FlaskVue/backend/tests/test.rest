@@ -4,7 +4,14 @@ POST http://localhost:5000/api/user
 Content-Type: application/json
 
 {
+    "name": "John6",
+    "password": "1234"
+}
+### 
+POST http://localhost:5000/api/user/login
+Content-Type: application/json
+
+{
     "name": "John4",
     "password": "1234"
 }
-###
