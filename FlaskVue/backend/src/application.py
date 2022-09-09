@@ -15,13 +15,17 @@ userService = UserService()
 def index_route():
     return "Hello World"
 
-@app.route("/api/user", methods = ["GET", "POST"])
+@app.route("/api/user", methods = ["GET"])
 @json_response
-@auth_token_gen
-def get_user_route():
+def get_user_route_get():
     if request.method == "GET":
         return userService.get()
-    elif request.method == "POST":
+
+@app.route("/api/user", methods = ["POST"])
+@json_response
+@auth_token_gen
+def get_user_route_post():
+    if request.method == "POST":
         return userService.create(request.json)
 
 @app.route("/api/user/login", methods = ["POST"])
