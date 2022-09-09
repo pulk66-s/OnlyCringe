@@ -5,6 +5,7 @@ from Services.User import User as UserService
 from Utils.JSON import JSON
 from Utils.Decorator.Json import json_response
 from Utils.Decorator.Token import auth_token_gen
+from Utils.Decorator.Login import login_required
 
 app = Flask(__name__)
 CORS(app)
@@ -12,6 +13,7 @@ CORS(app)
 userService = UserService()
 
 @app.route("/api")
+@login_required
 def index_route():
     return "Hello World"
 

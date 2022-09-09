@@ -1,6 +1,7 @@
 from dotenv import load_dotenv
-import os
 import hashlib
+import jwt
+import os
 
 class Encrypt:
 
@@ -14,5 +15,14 @@ class Encrypt:
     def encrypt_user(user):
         load_dotenv()
         salt = os.getenv("ENCRYPT_SALT")
-        data = user.uuid + user.name + user.password + salt;
-        return hashlib.sha512(bytes(data, encoding="utf-8")).hexdigest()
+        encoded_jwt = jwt.encode(user.__dict__(), salt, algorithm="HS256")
+        return encoded_jwt.decode("utf-8")
+
+    def decrypt_user(token):
+        load_dotenv()
+        salt = os.getenv("ENCRYPT_SALT")
+        try:
+            jwt.decode(token, salt, algorithm="HS256")
+            return True
+        except:
+            return False
