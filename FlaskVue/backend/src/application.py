@@ -17,6 +17,7 @@ def index_route():
 
 @app.route("/api/user", methods = ["GET", "POST"])
 @json_response
+@auth_token_gen
 def get_user_route():
     if request.method == "GET":
         return userService.get()
