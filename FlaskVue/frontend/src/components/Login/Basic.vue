@@ -1,23 +1,22 @@
 <template>
-    <div>
-        <form @submit="sendForm">
-            <div>
-                <label for="username"></label>
-                <input type="text" id="username" placeholder="Username" v-model="form.username" />
-            </div>
-            <div>
-                <label for="password"></label>
-                <input type="password" id="password" placeholder="Password" v-model="form.password" />
-            </div>
-            <div>
-                <label for="confirm_password"></label>
-                <input type="password" id="confirm_password" placeholder="Confirm Password" v-model="form.confirm_password" />
-            </div>
-            <div>
-                <button type="submit">Login</button>
-            </div>
-        </form>
-    </div>
+    <form>
+        <h1>Log In</h1>
+        <div class="social-media">
+            <p><i class="fab fa-google"></i></p>
+            <p><i class="fab fa-youtube"></i></p>
+            <p><i class="fab fa-facebook-f"></i></p>
+            <p><i class="fab fa-twitter"></i></p>
+        </div>
+        <p class="choose-email">or use an email account</p>
+        <div class="inputs">
+            <input type="email" placeholder="Email" />
+            <input type="password" placeholder="Password">
+        </div>
+        <p class="inscription">Create an account</p>
+        <div align="center">
+            <button type="submit">Log In</button>
+        </div>
+    </form>
 </template>
 
 <style>
@@ -32,17 +31,12 @@ export default {
             form: {
                 username: '',
                 password: '',
-                confirm_password: ''
             }
         });
     },
     methods: {
         async sendForm(e) {
             e.preventDefault();
-            if (this.form.password !== this.form.confirm_password) {
-                alert('Passwords do not match');
-                return;
-            }
             if (this.form.username === '' || this.form.password === '') {
                 alert('Please fill out all fields');
                 return;

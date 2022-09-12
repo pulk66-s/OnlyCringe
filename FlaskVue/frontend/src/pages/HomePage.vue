@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div id="Body">
     <h1>DIV</h1>
-    <BasicLoginComponent />
+    <BasicLoginComponent id="LoginComponent" />
   </div>
 </template>
 
