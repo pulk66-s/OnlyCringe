@@ -7,7 +7,12 @@ class UserApi extends BaseAPI {
 
     async login(email, password) {
         const response = await this.post('/login', { email, password });
-        return response;
+        return (response);
+    }
+
+    async register(data) {
+        const response = await this.post("", data);
+        return (response);
     }
 }
 

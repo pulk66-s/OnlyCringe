@@ -8,25 +8,29 @@ export default class API {
             baseURL: this.url,
             timeout: 10000,
             headers: {
-                "Content-Type": "application/json"
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content, Accept, Content-Type, Authorization',
+                'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
+                'Content-Type': 'application/json',
             }
         });
     }
 
     async get(path) {
-        return this.axios.get(path);
+        return axios.get(this.url + path);
     }
 
     async post(path, data) {
-        return this.axios.post(path, data);
+        console.log("result", this.url + path)
+        return axios.post(this.url + path, data);
     }
 
     async put(path, data) {
-        return this.axios.put(path, data);
+        return axios.put(this.url + path, data);
     }
 
     async delete(path) {
-        return this.axios.delete(path);
+        return axios.delete(this.url + path);
     }
 
 }

@@ -1,7 +1,6 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import * as VueRouter from 'vue-router'
-import HomePage from "./pages/HomePage.vue"
 
 const router = VueRouter.createRouter({
     history: VueRouter.createWebHistory(),
@@ -9,8 +8,13 @@ const router = VueRouter.createRouter({
         {
             path: '/',
             name: 'Home',
-            component: HomePage
+            component: () => import('./pages/HomePage.vue')
         },
+        {
+            path: "/account/create",
+            name: "CreateAccount",
+            component: () => import("./pages/account/CreateAccountPage.vue")
+        }
     ]
 })
 

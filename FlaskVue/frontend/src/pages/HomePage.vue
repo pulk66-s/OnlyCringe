@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import BasicLoginComponent from '@/components/Login/Basic.vue';
+import BasicLoginComponent from '@/components/Account/Login/Basic.vue';
 export default {
     name: "HomePage",
     data() {
