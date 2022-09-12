@@ -13,7 +13,6 @@ CORS(app)
 userService = UserService()
 
 @app.route("/api")
-@login_required
 def index_route():
     return "Hello World"
 
