@@ -1,19 +1,19 @@
 <template>
   <div>
     <h1>DIV</h1>
+    <BasicLoginComponent />
   </div>
 </template>
 
 <script>
+import BasicLoginComponent from '@/components/Login/Basic.vue';
 export default {
-    name: 'HomePage',
+    name: "HomePage",
     data() {
-        return (
-            {}
-        );
+        return ({});
     },
-    methods: {
-    }
+    methods: {},
+    components: { BasicLoginComponent }
 }
 </script>
 
