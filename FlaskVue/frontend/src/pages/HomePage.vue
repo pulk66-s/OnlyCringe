@@ -1,8 +1,9 @@
 <template>
-  <div id="Body">
-    <h1>DIV</h1>
-    <BasicLoginComponent id="LoginComponent" />
-  </div>
+    <div id="Body">
+        <h1>OnlyCringe !</h1>
+        <BasicLoginComponent id="LoginComponent" />
+        <p id="LittleComment">(Enfin il est la)</p>
+    </div>
 </template>
 
 <script>

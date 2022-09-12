@@ -12,7 +12,9 @@
             <input type="email" placeholder="Email" v-model="form.email" />
             <input type="password" placeholder="Password" v-model="form.password" />
         </div>
-        <p class="inscription">Create an account</p>
+        <a href="/account/create">
+            <p class="inscription">Create an account</p>
+        </a>
         <div align="center">
             <button type="submit">Log In</button>
         </div>
