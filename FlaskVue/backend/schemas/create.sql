@@ -5,5 +5,6 @@ use OnlyCringe;
 create table User (
     uuid UUID primary key not null default UUID(),
     name text not null unique,
-    password text not null
+    password text not null,
+    email text not null unique
 );

@@ -13,6 +13,8 @@ class Encrypt:
         return hashlib.sha512(bytes(combined, encoding="utf-8")).hexdigest()
 
     def encrypt_user(user):
+        if isinstance(user, str):
+            return user
         load_dotenv()
         salt = os.getenv("ENCRYPT_SALT")
         encoded_jwt = jwt.encode(user.__dict__(), salt, algorithm="HS256")

@@ -4,7 +4,8 @@ POST http://localhost:5000/api/user
 Content-Type: application/json
 
 {
-    "name": "Random3",
+    "name": "connectEmail",
+    "email": "connect@gmail.com",
     "password": "1234"
 }
 ### 
@@ -12,9 +13,9 @@ POST http://localhost:5000/api/user/login
 Content-Type: application/json
 
 {
-    "name": "John4",
+    "email": "connect@gmail.com",
     "password": "1234"
 }
 ###
 GET http://localhost:5000/api
-Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1dWlkIjoiZDY0NDA1YjctMmY1MS0xMWVkLTk4NmYtMDQwMzAwMDAwMDAwIiwibmFtZSI6IkpvaG40IiwicGFzc3dvcmQiOiJiNjM2NzQzYjdkMTQ2YzVjZWE4YTA0OWJkZDNkNmI1YjZmODNjNzg1NTVhM2M5Yjk1YmVlZmIxM2NlZWEyNmIxYzkzMDJkNzY1YjYwMDExNmQwMjY2MTI4Y2QyODdmZGYxYjgyNWQxY2MwMzBiNmM0ZmViMDc1NmU1NDFlNWRjZCJ9.eBGMEmVEV4hNmIjVESMPv6quXXTVN3E9RTQuBZ2T9QE
+Authorization: eyJ0eXAiOifJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1dWlkIjoiZDY0NDA1YjctMmY1MS0xMWVkLTk4NmYtMDQwMzAwMDAwMDAwIiwibmFtZSI6IkpvaG40IiwicGFzc3dvcmQiOiJiNjM2NzQzYjdkMTQ2YzVjZWE4YTA0OWJkZDNkNmI1YjZmODNjNzg1NTVhM2M5Yjk1YmVlZmIxM2NlZWEyNmIxYzkzMDJkNzY1YjYwMDExNmQwMjY2MTI4Y2QyODdmZGYxYjgyNWQxY2MwMzBiNmM0ZmViMDc1NmU1NDFlNWRjZCJ9.eBGMEmVEV4hNmIjVESMPv6quXXTVN3E9RTQuBZ2T9QE
