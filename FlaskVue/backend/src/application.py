@@ -22,6 +22,12 @@ def get_user_route_get():
     if request.method == "GET":
         return userService.get()
 
+@app.route("/api/user/<string:name>", methods = ["GET"])
+@json_response
+def get_user_route_by_name(name):
+    if request.method == "GET":
+        return userService.get(name=name)
+
 @app.route("/api/user", methods = ["POST"])
 @json_response
 @auth_token_gen
