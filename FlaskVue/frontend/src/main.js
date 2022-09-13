@@ -14,6 +14,11 @@ const router = VueRouter.createRouter({
             path: "/account/create",
             name: "CreateAccount",
             component: () => import("./pages/account/CreateAccountPage.vue")
+        },
+        {
+            path: "/topics",
+            name: "Topics",
+            component: () => import("./pages/topics/HubPage.vue")
         }
     ]
 })
