@@ -1,0 +1,1 @@
+scp -r public/ src/ scripts/ vue.config.js package.json babel.config.js debian@51.77.213.215:~/frontend

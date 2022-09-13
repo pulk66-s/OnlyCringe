@@ -4,7 +4,7 @@ export default class API {
 
     constructor(prefix = "", url = "http://localhost:5000/api") {
         const workingEnv = process.env.VUE_APP_WORKING_ENV;
-        console.log("workingEnv", workingEnv);
+	console.log("workingEnv", workingEnv);
         if (workingEnv === "production") {
             this.url = "https://onlycringe.fr:5000/api" + prefix;
         } else {
