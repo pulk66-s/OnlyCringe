@@ -1,1 +1,2 @@
-npm run serve
+#!/bin/bash
+sudo npm run serve
