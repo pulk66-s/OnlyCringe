@@ -40,7 +40,6 @@ export default {
     methods: {
         async sendForm(e) {
             e.preventDefault();
-            console.log(this.form);
             if (this.form.username === '' || this.form.password === '') {
                 alert('Please fill out all fields');
                 return;
@@ -48,7 +47,6 @@ export default {
             try {
                 let res = await UserApi.login(this.form.email, this.form.password);
                 if (res.status === 200) {
-                    console.log(res.data);
                     localStorage.setItem("loginToken", res.data.token);
                 } else {
                     alert("Unknown Error");

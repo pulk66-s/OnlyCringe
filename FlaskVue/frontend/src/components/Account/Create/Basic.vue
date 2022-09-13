@@ -45,8 +45,7 @@ export default {
     methods: {
         async submitForm(e) {
             e.preventDefault();
-            let res = await UserApi.register(this.form);
-            console.log(res);
+            await UserApi.register(this.form);
         }
     },
     components: {}
