@@ -12,5 +12,5 @@ def login_required(func):
         if Encrypt.decrypt_user(header):
             res = func(*args, **kwargs)
             return res
-        return "Not Authorized", 401
+        raise Exception("Not Authorized, 401")
     return decorator

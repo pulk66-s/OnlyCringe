@@ -32,6 +32,7 @@ def get_user_route_by_name(name):
 
 @app.route("/api/user/<string:name>", methods = ["PUT", "DELETE"])
 @json_response
+@login_required
 def put_delete_route_by_name(name):
     if request.method == "PUT":
         return userService.update(data=request.json, name=name)

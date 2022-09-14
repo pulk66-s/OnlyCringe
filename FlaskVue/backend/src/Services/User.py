@@ -84,7 +84,6 @@ class User:
             if self.get(name=name) == {}:
                 raise Exception("User does not exist, 400")
             req = f"delete from User where name='{name}'"
-            print("req deleted", req)
             if self.db.post(req) is True:
                 return "Deleted", 200
             raise Exception("ServerError, 500")
@@ -93,13 +92,10 @@ class User:
     def update(self, data, name=None):
         if name is not None:
             if self.get(name=name) == {}:
-                print("NULL")
                 raise Exception("User does not exist, 400")
             fields = " and ".join([f"{k}='{v}'"for k, v in data.items() if k != "uuid"])
             req = f"update User set {fields} where name='{name}'"
             if self.db.post(req) is True:
-                print("name", data["name"] if "name" in data else name)
-                print(self.get(name=data["name"] if "name" in data else name))
                 return self.get(name=data["name"] if "name" in data else name)
             raise Exception("ServerError, 500")
         raise Exception("Cannot update all users, 400")
