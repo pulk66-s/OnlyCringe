@@ -4,8 +4,8 @@ POST http://localhost:5000/api/user
 Content-Type: application/json
 
 {
-    "name": "connectEmail",
-    "email": "connect@gmail.com",
+    "name": "test",
+    "email": "test@gmail.com",
     "password": "1234"
 }
 ### 
@@ -23,3 +23,11 @@ Authorization: eyJ0eXAiOifJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1dWlkIjoiZDY0NDA1YjctMmY
 GET http://localhost:5000/api/user/connectEmail
 ###
 GET http://localhost:5000/api/topics
+###
+POST http://localhost:5000/api/topics
+Content-Type: application/json
+
+{
+    "name": "testing2",
+    "author_uuid": "583cbfce-344b-11ed-9384-040300000000"
+}

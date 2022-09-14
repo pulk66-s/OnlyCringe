@@ -44,8 +44,10 @@ def login_user_route():
     if request.method == "POST":
         return userService.login(request.json)
 
-@app.route("/api/topics", methods = ["GET"])
+@app.route("/api/topics", methods = ["GET", "POST"])
 @json_response
 def get_topics_route():
     if request.method == "GET":
         return topicService.get()
+    elif request.method == "POST":
+        return topicService.create(request.json)

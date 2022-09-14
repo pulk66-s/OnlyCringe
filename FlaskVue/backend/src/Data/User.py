@@ -40,11 +40,3 @@ class User:
     def __str__(self):
         txt = f"Uuid: {self.uuid}, Name: {self.name}, Password: {self.password}, Email: {self.email}"
         return txt
-
-    def __dict__(self):
-        return {
-            "uuid": self.uuid,
-            "name": self.name,
-            "password": self.password,
-            "email": self.email
-        }

@@ -15,7 +15,7 @@ class JSON:
             return data
         if isinstance(data, dict) or isinstance(data, str):
             return data
-        return data.__dict__()
+        return data.__dict__
 
     def parse(data):
         return jsonify(JSON.__parse_rec(data))

@@ -19,7 +19,7 @@ class User:
     def __check_user(self, user):
         fields = ["name", "password", "email"]
         for field in fields:
-            if user.__dict__()[field] == "":
+            if user.__dict__[field] == "":
                 return False
         return True
 
@@ -48,7 +48,7 @@ class User:
                 return {}
             return self.parse(res[0])
         if user is not None:
-            vals = user.__dict__().items()
+            vals = user.__dict__.items()
             req = "select * from User where " + " and ".join([f"{k} = '{v}'" for k, v in vals if v != ""])
             res = self.db.get(req)
             if len(res) == 0:

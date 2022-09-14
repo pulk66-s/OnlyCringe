@@ -17,7 +17,7 @@ class Encrypt:
             return user
         load_dotenv()
         salt = os.getenv("ENCRYPT_SALT")
-        encoded_jwt = jwt.encode(user.__dict__(), salt, algorithm="HS256")
+        encoded_jwt = jwt.encode(user.__dict__, salt, algorithm="HS256")
         return encoded_jwt.decode("utf-8")
 
     def decrypt_user(token):
