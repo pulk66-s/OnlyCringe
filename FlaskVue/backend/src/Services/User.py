@@ -2,6 +2,8 @@ import json
 from Utils.DB import DB
 from Utils.JSON import JSON
 from Data.User import User as UserModel
+from Utils.Encrypt import Encrypt
+from flask import request
 
 class User:
     
@@ -21,6 +23,12 @@ class User:
         for field in fields:
             if user.__dict__[field] == "":
                 return False
+        return True
+
+    def __check_owner(self, user):
+        header = request.headers["Authorization"]
+        if Encrypt.encrypt_user(user) != header:
+            return False
         return True
 
     def parse(self, data):
@@ -81,8 +89,11 @@ class User:
 
     def delete(self, name=None):
         if name is not None:
-            if self.get(name=name) == {}:
+            user = self.get(name=name)
+            if user == {}:
                 raise Exception("User does not exist, 400")
+            if not self.__check_owner(user):
+                raise Exception("You are not the owner of the account..., 400")
             req = f"delete from User where name='{name}'"
             if self.db.post(req) is True:
                 return "Deleted", 200
