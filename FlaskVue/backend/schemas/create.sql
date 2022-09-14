@@ -13,7 +13,7 @@ create table Topics (
     uuid UUID primary key not null default UUID(),
     name text not null unique,
     author_uuid UUID not null,
-    foreign key (author_uuid) references User(uuid)
+    foreign key (author_uuid) references User(uuid) on delete cascade
 );
 
 create table Post (
@@ -22,6 +22,6 @@ create table Post (
     content text not null,
     author_uuid UUID not null,
     topic_uuid UUID not null,
-    foreign key (author_uuid) references User(uuid),
-    foreign key (topic_uuid) references Topics(uuid)
+    foreign key (author_uuid) references User(uuid) on delete cascade,
+    foreign key (topic_uuid) references Topics(uuid) on delete cascade
 );

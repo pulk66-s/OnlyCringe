@@ -30,6 +30,14 @@ def get_user_route_by_name(name):
     if request.method == "GET":
         return userService.get(name=name)
 
+@app.route("/api/user/<string:name>", methods = ["PUT", "DELETE"])
+@json_response
+def put_delete_route_by_name(name):
+    if request.method == "PUT":
+        return userService.update(data=request.json, name=name)
+    elif request.method == "DELETE":
+        return userService.delete(name=name)
+
 @app.route("/api/user", methods = ["POST"])
 @json_response
 @auth_token_gen

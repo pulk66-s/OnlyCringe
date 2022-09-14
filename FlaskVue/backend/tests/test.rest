@@ -4,8 +4,8 @@ POST http://localhost:5000/api/user
 Content-Type: application/json
 
 {
-    "name": "test",
-    "email": "test@gmail.com",
+    "name": "test2",
+    "email": "test2@gmail.com",
     "password": "1234"
 }
 ### 
@@ -28,6 +28,15 @@ POST http://localhost:5000/api/topics
 Content-Type: application/json
 
 {
-    "name": "testing2",
-    "author_uuid": "583cbfce-344b-11ed-9384-040300000000"
+    "name": "testing",
+    "author_uuid": "be7490b5-344e-11ed-9384-040300000000"
+}
+###
+DELETE http://localhost:5000/api/user/test
+###
+PUT http://localhost:5000/api/user/rename2
+Content-Type: application/json
+
+{
+    "name": "test2"
 }
