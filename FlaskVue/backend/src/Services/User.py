@@ -102,8 +102,11 @@ class User:
 
     def update(self, data, name=None):
         if name is not None:
-            if self.get(name=name) == {}:
+            user = self.get(name=name)
+            if user == {}:
                 raise Exception("User does not exist, 400")
+            if not self.__check_owner(user):
+                raise Exception("You are not the owner of the account..., 400")
             fields = " and ".join([f"{k}='{v}'"for k, v in data.items() if k != "uuid"])
             req = f"update User set {fields} where name='{name}'"
             if self.db.post(req) is True:
