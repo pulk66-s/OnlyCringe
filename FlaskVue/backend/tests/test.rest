@@ -4,8 +4,8 @@ POST http://localhost:5000/api/user
 Content-Type: application/json
 
 {
-    "name": "test",
-    "email": "test@gmail.com",
+    "name": "test2",
+    "email": "test2@gmail.com",
     "password": "1234"
 }
 ### 
@@ -41,3 +41,5 @@ Content-Type: application/json
 {
     "name": "test2"
 }
+###
+GET http://localhost:5000/templates
